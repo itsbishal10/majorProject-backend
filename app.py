@@ -3,6 +3,10 @@ import tensorflow as tf
 import numpy as np
 from PIL import Image
 import io
+import os
+
+# Configure TensorFlow to use CPU only
+os.environ['CUDA_VISIBLE_DEVICES'] = '-1'
 
 app = Flask(__name__)
 
@@ -65,8 +69,6 @@ def predict():
 
 # if __name__ == '__main__':
 #     app.run(debug=True)
-
-import os
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
